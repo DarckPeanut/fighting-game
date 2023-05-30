@@ -323,7 +323,7 @@ window.addEventListener('keydown', (event)=> {
 
 	
 	switch (event.key) {
-		case 'd':
+		case 'd', 'в':
 			keys.d.pressed = true
 			player.lastKey = 'd'
 			break
