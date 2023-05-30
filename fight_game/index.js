@@ -295,7 +295,7 @@ function animate() {
 		) {
 		player.takeHit()
 		enemy.isAttacking = false
-		
+
 		 gsap.to('#playerHealth', {
 			width: player.health +'%'
 		})
