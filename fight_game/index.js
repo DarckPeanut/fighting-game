@@ -337,18 +337,6 @@ window.addEventListener('keydown', (event)=> {
 		case ' ':
 			player.attack()
 			break
-		
-		case 'в':
-			keys.d.pressed = true
-			player.lastKey = 'в'
-			break
-		case 'ф':
-			keys.a.pressed = true
-			player.lastKey = 'ф'
-			break
-		case 'ц':
-			player.velocity.y = -20
-			break
 
 
 	}
