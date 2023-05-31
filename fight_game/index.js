@@ -183,21 +183,25 @@ console.log(player);
 
 
 const keys = {
-	a: {
+	KeyA: {
 		pressed : false
 	},
-	d: {
+	KeyD: {
 		pressed : false
 	},
-	w: {
+	KeyW: {
 		pressed : false
 	},
+
 	ArrowRight: {
 		pressed: false
 	},
 	ArrowLeft: {
 		pressed: false
-	}
+	},
+	ArrowUp: {
+		pressed: false
+	},
 }
 
 decreaseTimer()
@@ -220,16 +224,15 @@ function animate() {
 
 	//player movment
 
-	if (keys.a.pressed && player.lastKey === 'a') {
+	if (keys.KeyA.pressed && player.lastKey === 'KeyA') {
 		player.velocity.x = -5
 		player.switchSprite('run')
-	} else if (keys.d.pressed && player.lastKey ==='d') {
+	} else if (keys.KeyD.pressed && player.lastKey ==='KeyD') {
 		player.velocity.x = 5
 		player.switchSprite('run')
-		} else {
+	} else {
 			player.switchSprite('idle')
 		}
-
 
 	//jump
 	if(player.velocity.y < 0) {
@@ -319,26 +322,24 @@ animate()
 
 
 window.addEventListener('keydown', (event)=> {
-	if(!player.dead) {
+    if(!player.dead) {
 
-	
-	switch (event.key) {
-		case 'd':
-			keys.d.pressed = true
-			player.lastKey = 'd'
+
+	switch(event.code) {
+		case 'KeyD':
+			keys.KeyD.pressed = true
+			player.lastKey = 'KeyD'
 			break
-		case 'a':
-			keys.a.pressed = true
-			player.lastKey = 'a'
+		case 'KeyA':
+			keys.KeyA.pressed = true
+			player.lastKey = 'KeyA'
 			break
-		case 'w':
+		case 'KeyW':
 			player.velocity.y = -20
 			break
-		case ' ':
+		case 'Space':
 			player.attack()
 			break
-
-
 	}
    }
     
@@ -366,13 +367,15 @@ window.addEventListener('keydown', (event)=> {
 
 
 window.addEventListener('keyup', (event)=> {
-	switch (event.key) {
-		case 'd':
-			keys.d.pressed = false
+	//player keys
+	switch (event.code) {
+		case 'KeyD':
+			keys.KeyD.pressed = false
 			break
-		case 'a':
-			keys.a.pressed = false
+		case 'KeyA':
+			keys.KeyA.pressed = false
 			break
+
 
 	}
 
